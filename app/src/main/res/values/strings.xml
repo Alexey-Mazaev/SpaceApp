@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SpaceApp</string>
+
+    <!-- Navigation menu -->
+    <string name="feed">Feed</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+
 </resources>
