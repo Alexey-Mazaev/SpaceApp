@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.mazaevalexey.spaceapp.R
 import com.mazaevalexey.spaceapp.SpaceAppApplication
 import com.mazaevalexey.spaceapp.ui.BaseFragment
-import com.squareup.picasso.Picasso
+import com.mazaevalexey.spaceapp.utils.loadAssetByUrl
 import javax.inject.Inject
 
 class AstronomyDayPictureFragment : BaseFragment(R.layout.astronomy_day_picture_fragment) {
@@ -28,13 +28,9 @@ class AstronomyDayPictureFragment : BaseFragment(R.layout.astronomy_day_picture_
         viewModel =
             ViewModelProvider(this, viewModelFactory)[AstronomyDayPictureViewModel::class.java]
 
-
         viewModel.dayPicture.observe(this, { astronomyDayPicture ->
             photoTitleView.text = astronomyDayPicture?.title
-
-            Picasso.get()
-                .load(astronomyDayPicture.url)
-                .into(photoView)
+            photoView.loadAssetByUrl(astronomyDayPicture.url)
         })
     }
 
